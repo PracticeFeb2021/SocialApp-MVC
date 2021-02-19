@@ -27,17 +27,27 @@ class PostListVC: UIViewController, StoryboardInitializable {
         
         tableView.dataSource = self
         tableView.delegate = self
-        
-        netService.loadPosts { [weak self] posts in
-            guard let strongSelf = self,
-                  let newPosts = posts else {
+        reloadPosts()
+    }
+    
+    //MARK: - Network
+
+    func reloadPosts() {
+        netService.loadPosts { [weak self] result in
+            guard let strongSelf = self else {
                 return
             }
-            print("INFO: \(newPosts.count) posts received from network")
-            
-            DispatchQueue.main.async {
-                strongSelf.posts = newPosts
-                strongSelf.tableView.reloadData()
+            switch result {
+            case .failure(let error):
+                //TODO: handle error
+                print("ERROR: \(error)")
+                
+            case .success(let posts):
+                print("INFO: \(posts.count) posts received from network")
+                DispatchQueue.main.async {
+                    strongSelf.posts = posts
+                    strongSelf.tableView.reloadData()
+                }
             }
         }
     }

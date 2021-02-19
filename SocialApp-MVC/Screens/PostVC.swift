@@ -38,12 +38,13 @@ class PostVC: UIViewController, StoryboardInitializable {
         
         postTitleLabel.text = post.title
         postBodyLabel.text = post.body
-        loadUser(withID: post.userId)
-        loadComments(forPostWithID: post.id)
-        
+
         commentsTableView.register(UINib(nibName: "CommentCell", bundle: nil), forCellReuseIdentifier: CommentCell.cellReuseId)
         commentsTableView.dataSource = self
         commentsTableView.delegate = self
+        
+        reloadUser()
+        reloadComments()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -68,44 +69,59 @@ class PostVC: UIViewController, StoryboardInitializable {
     
     //MARK: - Network
     
-    private func loadUser(withID id: Int) {
-        netService.loadUsers { users in
-            if let user = users?.first(where: {
-                $0.id == id
-            }) {
-                DispatchQueue.main.async { [weak self] in
-                    self?.postAuthorLabel.text = user.name
+    private func reloadUser() {
+        
+        netService.loadUsers { [weak self] result in
+            guard let strongSelf = self else {
+                return
+            }
+            
+            switch result {
+            case .failure(let error):
+                //TODO: handle error
+                print("ERROR: \(error)")
+                
+            case .success(let users):
+                print("INFO: \(users.count) users received from network")
+                guard let user = users.first(where: {
+                    $0.id == strongSelf.post.userId
+                }) else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    strongSelf.postAuthorLabel.text = user.name
                 }
             }
         }
     }
     
-    private func loadComments(forPostWithID id: Int) {
-        netService.loadComments { comments in
-            guard let comments1 = comments else {
-                print("INFO: No comments received from network")
+    private func reloadComments() {
+        
+        netService.loadComments { [weak self] result in
+            guard let strongSelf = self else {
                 return
             }
-            let commentsForPost = comments1.filter {
-                $0.postId == id
-            }
-            guard commentsForPost.count > 0 else {
-                print("INFO: No comments received from network")
+            
+            let comments: [Comment]
+            switch result {
+            case .failure(let error):
+                //TODO: handle error
+                print("ERROR: \(error)")
                 return
+            case .success(let receivedComments):
+                comments = receivedComments
+                break
+            }
+            let commentsForPost = comments.filter {
+                $0.postId == strongSelf.post.id
             }
             print("INFO: found \(commentsForPost.count) comments for this post")
             
-            DispatchQueue.main.async { [weak self] in
-                guard let strongSelf = self else {
-                    return
-                }
+            DispatchQueue.main.async {
                 strongSelf.comments = commentsForPost
                 strongSelf.commentsTableView.reloadData()
                 strongSelf.commentsTableConstraint.constant = strongSelf.commentsTableView.contentSize.height
                 strongSelf.view.layoutIfNeeded()
-                
-                // force the layout of subviews before drawing
-                strongSelf.commentsTableView.layoutIfNeeded()
             }
         }
     }
@@ -124,7 +140,7 @@ extension PostVC: UITableViewDelegate,UITableViewDataSource  {
             return UITableViewCell()
         }
         let cell =
-            self.commentsTableView.dequeueReusableCell(withIdentifier: CommentCell.cellReuseId, for: indexPath) as! CommentCell
+            commentsTableView.dequeueReusableCell(withIdentifier: CommentCell.cellReuseId, for: indexPath) as! CommentCell
         cell.configure(with: comments[indexPath.row])
         return cell
     }
