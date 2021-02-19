@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PostVC: UIViewController {
+class PostVC: UIViewController, StoryboardInitializable {
     
     @IBOutlet weak var scrollView: UIScrollView!
     

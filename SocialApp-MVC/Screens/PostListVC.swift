@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PostListVC: UIViewController {
+class PostListVC: UIViewController, StoryboardInitializable {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -70,8 +70,7 @@ extension PostListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
         
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "PostVC") as! PostVC
+        let vc = PostVC.initFromStoryboard()
         vc.netService = netService
         vc.post = posts[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)

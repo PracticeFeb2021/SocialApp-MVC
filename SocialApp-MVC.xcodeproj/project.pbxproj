@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C00409225DAED42005348D8 /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C00409125DAED42005348D8 /* StoryboardInitializable.swift */; };
 		0CA9C4FB25D851080014FFB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CA9C4FA25D851080014FFB7 /* LaunchScreen.storyboard */; };
 		0CB017A925D95A470020A588 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CB017A425D95A470020A588 /* PostCell.xib */; };
 		0CB017AA25D95A470020A588 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB017A525D95A470020A588 /* PostCell.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C00409125DAED42005348D8 /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		0CA9C4FA25D851080014FFB7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CB017A425D95A470020A588 /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		0CB017A525D95A470020A588 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		0CE79F6125D7DF99003DAFDE /* SocialApp-MVC */ = {
 			isa = PBXGroup;
 			children = (
+				0C00409125DAED42005348D8 /* StoryboardInitializable.swift */,
 				0CB017B425D95ABB0020A588 /* Screens */,
 				0CE79F8925D7E198003DAFDE /* Models */,
 				0CE79F7A25D7E198003DAFDE /* NetworkManager */,
@@ -230,6 +233,7 @@
 			files = (
 				0CE79F8F25D7E198003DAFDE /* NetworkManager.swift in Sources */,
 				0CE79F9025D7E198003DAFDE /* Endpoint.swift in Sources */,
+				0C00409225DAED42005348D8 /* StoryboardInitializable.swift in Sources */,
 				0CB017BA25D95ABB0020A588 /* PostListVC.swift in Sources */,
 				0CE79F9925D7E198003DAFDE /* Comment.swift in Sources */,
 				0CE79F9A25D7E198003DAFDE /* User.swift in Sources */,
