@@ -23,11 +23,21 @@ class PostListVC: UIViewController, StoryboardInitializable {
         view.backgroundColor = UIColor.white
         navigationItem.title = "Posts"
         
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed))
+        navigationItem.rightBarButtonItem = addButton
+        
         tableView.register(UINib(nibName: "PostCell", bundle: nil), forCellReuseIdentifier: PostCell.cellReuseId)
         
         tableView.dataSource = self
         tableView.delegate = self
         reloadPosts()
+    }
+    
+    //MARK: - Methods
+
+    @objc func addButtonPressed() {
+        let newPostVC = NewPostVC.initFromStoryboard()
+        self.navigationController?.pushViewController(newPostVC, animated: true)
     }
     
     //MARK: - Network

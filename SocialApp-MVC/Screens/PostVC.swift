@@ -36,6 +36,9 @@ class PostVC: UIViewController, StoryboardInitializable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let editButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editPostPressed))
+        navigationItem.rightBarButtonItem = editButton
+        
         postTitleLabel.text = post.title
         postBodyLabel.text = post.body
 
@@ -50,6 +53,15 @@ class PostVC: UIViewController, StoryboardInitializable {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.updateScrollViewContentSize()
+    }
+    
+    //MARK: - Methods
+
+    @objc func editPostPressed() {
+        let editPostVC = NewPostVC.initFromStoryboard()
+        editPostVC.mode = .edit
+        editPostVC.post = post
+        self.navigationController?.pushViewController(editPostVC, animated: true)
     }
     
     private func updateScrollViewContentSize(){

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xk1-vb-5EK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xk1-vb-5EK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.5"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -150,8 +151,73 @@
             </objects>
             <point key="canvasLocation" x="1021.7391304347827" y="72.991071428571431"/>
         </scene>
+        <!--New PostVC-->
+        <scene sceneID="OTi-WX-qdR">
+            <objects>
+                <viewController storyboardIdentifier="NewPostVC" id="F4F-pS-Skq" customClass="NewPostVC" customModule="SocialApp_MVC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T1k-DU-vg6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rSD-4k-K5d">
+                                <rect key="frame" x="10" y="187.5" width="394" height="654.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="TbH-0b-wb1">
+                                <rect key="frame" x="30" y="109" width="354" height="37.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVy-Cj-tST">
+                                <rect key="frame" x="148" y="54" width="118.5" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yo-HF-b81" userLabel="Line view">
+                                <rect key="frame" x="0.0" y="166.5" width="414" height="1"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="QzV-Uq-xe0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nMl-bH-nEI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TbH-0b-wb1" firstAttribute="leading" secondItem="nMl-bH-nEI" secondAttribute="leading" constant="30" id="0IR-tB-VmR"/>
+                            <constraint firstItem="rSD-4k-K5d" firstAttribute="leading" secondItem="nMl-bH-nEI" secondAttribute="leading" constant="10" id="ILN-Xt-BtD"/>
+                            <constraint firstAttribute="trailing" secondItem="9yo-HF-b81" secondAttribute="trailing" id="RlA-Io-LVx"/>
+                            <constraint firstItem="9yo-HF-b81" firstAttribute="leading" secondItem="T1k-DU-vg6" secondAttribute="leading" id="UMm-PC-rw7"/>
+                            <constraint firstItem="nMl-bH-nEI" firstAttribute="bottom" secondItem="rSD-4k-K5d" secondAttribute="bottom" constant="20" id="VlR-P2-rhR"/>
+                            <constraint firstItem="nMl-bH-nEI" firstAttribute="trailing" secondItem="rSD-4k-K5d" secondAttribute="trailing" constant="10" id="bzQ-kz-7vi"/>
+                            <constraint firstItem="rSD-4k-K5d" firstAttribute="top" secondItem="9yo-HF-b81" secondAttribute="bottom" constant="20" id="j2m-CW-7qd"/>
+                            <constraint firstItem="TbH-0b-wb1" firstAttribute="top" secondItem="XVy-Cj-tST" secondAttribute="bottom" constant="20" id="kXK-tK-JA3"/>
+                            <constraint firstItem="nMl-bH-nEI" firstAttribute="trailing" secondItem="TbH-0b-wb1" secondAttribute="trailing" constant="30" id="uMC-QS-QzB"/>
+                            <constraint firstItem="9yo-HF-b81" firstAttribute="top" secondItem="TbH-0b-wb1" secondAttribute="bottom" constant="20" id="wd8-zR-xB2"/>
+                            <constraint firstItem="XVy-Cj-tST" firstAttribute="top" secondItem="nMl-bH-nEI" secondAttribute="top" constant="10" id="yMk-BC-DqF"/>
+                            <constraint firstItem="XVy-Cj-tST" firstAttribute="centerX" secondItem="T1k-DU-vg6" secondAttribute="centerX" id="zww-KT-7Rn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="postBodyTextView" destination="rSD-4k-K5d" id="GKr-Zd-iZJ"/>
+                        <outlet property="postTitleTextField" destination="TbH-0b-wb1" id="3ub-dZ-8RE"/>
+                        <outlet property="topLabel" destination="XVy-Cj-tST" id="cNN-Ea-rod"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JIr-NT-mpd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1773.913043478261" y="72.991071428571431"/>
+        </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

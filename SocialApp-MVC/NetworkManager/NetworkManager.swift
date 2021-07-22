@@ -30,7 +30,7 @@ protocol NetworkingService {
 }
 
 class NetworkManager: NetworkingService {
-    static let shared: NetworkManager = { .init() }()
+    static let shared = NetworkManager()
     
     func loadPosts(_ completion: @escaping (Result<[Post], NetServiceError>) -> ()) {
         load(.posts, completion)

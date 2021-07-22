@@ -19,9 +19,9 @@ struct Post: Decodable {
     
     let userId: Int
     
-    let title: String
+    var title: String
     
-    let body: String
+    var body: String
 }
 
 

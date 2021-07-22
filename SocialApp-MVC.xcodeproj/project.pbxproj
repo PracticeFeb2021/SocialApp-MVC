@@ -25,6 +25,7 @@
 		0CE79F9A25D7E198003DAFDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE79F8C25D7E198003DAFDE /* User.swift */; };
 		0CE79F9B25D7E198003DAFDE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE79F8D25D7E198003DAFDE /* Post.swift */; };
 		0CE79F9C25D7E198003DAFDE /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE79F8E25D7E198003DAFDE /* Company.swift */; };
+		1117716326A99A3200C2A577 /* NewPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1117716226A99A3200C2A577 /* NewPostVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		0CE79F8C25D7E198003DAFDE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0CE79F8D25D7E198003DAFDE /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		0CE79F8E25D7E198003DAFDE /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		1117716226A99A3200C2A577 /* NewPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			children = (
 				0CB017B525D95ABB0020A588 /* Main.storyboard */,
 				0CB017B625D95ABB0020A588 /* PostVC.swift */,
+				1117716226A99A3200C2A577 /* NewPostVC.swift */,
 				0CB017B725D95ABB0020A588 /* PostListVC.swift */,
 			);
 			path = Screens;
@@ -238,6 +241,7 @@
 				0CE79F9925D7E198003DAFDE /* Comment.swift in Sources */,
 				0CE79F9A25D7E198003DAFDE /* User.swift in Sources */,
 				0CE79F6325D7DF99003DAFDE /* AppDelegate.swift in Sources */,
+				1117716326A99A3200C2A577 /* NewPostVC.swift in Sources */,
 				0CB017AC25D95A470020A588 /* CommentCell.swift in Sources */,
 				0CE79F9C25D7E198003DAFDE /* Company.swift in Sources */,
 				0CE79F9825D7E198003DAFDE /* Address.swift in Sources */,
